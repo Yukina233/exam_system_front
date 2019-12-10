@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>在线考试系统 - 试题详情</title>
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="../../js/vue.min.js"></script>
+  <script src="../../js/vue-resource.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/overdiv.css">
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body class="content-wrapper">
+<div class="float_top">
+  <button class="btn btn-inverse-info btn-sm" onclick="javascript:smoothscroll();"><i class="mdi mdi-format-vertical-align-top"></i> 返回顶部</button>
+</div>
+
+
+<div id="app">
+  <!-- 批量添加学生弹窗 -->
+  <div id="overdiv" class="card">
+    <div class="card-body">
+      <h2 class="card-title">添加学生</h2>
+      <p class="card-description">请在下面的输入框中添加学生的学号，用';'分开</p>
+      <form>
+        <textarea rows="10" cols="50" id="batch_names" class="form-control" v-model="batch_names" placeholder="请用;分开学生学号..."></textarea><br>
+        <button type="button" class="btn btn-google btn-fw" @click="batch_insert" /><i class="mdi mdi-account-multiple-plus"></i> 批量添加</button>
+<!--        <button type="reset" class="btn btn-warning btn-fw" /><i class="mdi mdi-delete-variant"></i> 清空输入框</button>-->
+        <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()" /><i class="mdi mdi-window-close"></i> 取消</button>
+      </form>
+      <div></div>
+    </div>
+  </div>
+  <div id="over"></div>
+
+  <div class="page-header">
+  <h1>学生管理</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">学生列表</h2>
+           <p class="card-description"></p>
+<!--          <p class="card-description">点击可删除单个学生</p>-->
+          <table class="table">
+            <tbody id="stutable"></tbody>
+          </table>
+          <p>
+            <button type="button" class="btn btn-gradient-info btn-google" onclick="show_div()" /><i class="mdi mdi-account-multiple-plus"></i> 添加学生</button>
+            <button type="button" class="btn btn-gradient-danger btn-google" @click="delete_all_names" /><i class="mdi mdi-delete-forever"></i> 清空学生列表</button>
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- DIV of vue app -->
+</div>
+<script src="../../js/paper-detail.js"></script>
+</body>
+</html>

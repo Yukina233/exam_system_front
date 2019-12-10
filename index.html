@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>在线考试系统</title>
+  <!-- plugins:css -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/vue-resource.min.js"></script>
+  <script src="js/common.js"></script>
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+<style type="text/css" >
+body{
+            background-image:url(images/index-bkg.jpg);
+            background-position:center;
+        }
+</style>
+
+  <div class="container-scroller" id="app" >
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper1 d-flex align-items-center auth">
+        <div class="row w-100">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left p-5">
+              <div class="brand-logo">
+                <img src="images/logo-trans.svg" height="50" width="600">
+              </div>
+              <h4>欢迎进入在线考试系统</h4>
+              <h6 >请登录</h6>
+              <form class="pt-3">
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="在此输入账号..." v-model="postdata.account">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="在此输入密码..." v-model="postdata.password">
+                </div>
+                <div class="mt-3">
+                  <a class="btn btn-block btn-gradient-dark btn-lg font-weight-medium auth-form-btn" href="javascript:void(0)" @click="trylogin()" @keyup.enter="trylogin()">登录</a>
+                </div>
+<!--                <div class="mt-3">-->
+<!--                  <p style="text-align: center;"><a @click="admin()" class="auth-link text-black">后台管理</a></p>-->
+<!--                </div>-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/misc.js"></script>
+  <!-- endinject -->
+
+  <script>
+  window.onload = function(){
+    var vm = new Vue({
+    //new Vue({
+      el:'#app',
+      data:{
+        postdata:{
+          account: '',
+          password: '',
+        }
+      },
+      methods:{
+        trylogin:function(){
+          //发送 post 请求
+          this.$http.post(backend_server + 'login/', this.postdata, {emulateJSON: true, credentials: true}).then(function(res){
+            //document.write(res.bodyText);
+            console.log(res.bodyText);
+            var dataret = JSON.parse(res.bodyText);
+            if (dataret.code == 200)
+            {
+              console.log(dataret.redirect);
+              window.location.href = dataret.redirect;
+            }
+            else
+            {
+              alert('登录错误！可能是因为您的账号密码输入错误！');
+            }
+          },function(res){
+            console.log(res.status);
+          });
+        },
+        admin:function(){
+          window.open(backend_server + "admin/");
+        }
+      }
+    })
+  }
+  </script>
+</body>
+
+
+
+</html>

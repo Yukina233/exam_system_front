@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>在线考试系统 - 教师用户</title>
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="../../js/vue.min.js"></script>
+  <script src="../../js/vue-resource.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/overdiv.css">
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body class="content-wrapper">
+<div class="float_top">
+  <button class="btn btn-inverse-info btn-sm" onclick="javascript:smoothscroll();"><i class="mdi mdi-format-vertical-align-top"></i> 返回顶部</button>
+</div>
+
+<div id="app">
+  <div class="page-header">
+    <h1>试卷列表</h1>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">试卷列表</h3>
+      <p class="card-description">点击"查看详情"可以管理考生信息，点击"试题管理"可以对试题进行管理，点击"试卷状态"栏的按钮对其进行开放和关闭的操作</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>试卷编号</th>
+            <th>试卷名称</th>
+            <th>准考人数</th>
+            <th>交卷人数</th>
+            <th>试卷状态</th>
+            <th v-if="!judge_mode">试题管理</th>
+            <th v-if="!judge_mode">管理学生</th>
+            <th v-if="!judge_mode">删除试卷</th>
+            <th v-if="!judge_mode">查看试卷</th>
+            <th v-if="judge_mode">进入判题</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for ="(paper,index) in paperlist">
+            <td>{{ paper.pid }}</td>
+            <td>{{ paper.pname }}</td>
+            <td>{{ paper.stulist }}</td>
+            <td>{{ paper.submitted }}</td>
+
+
+            <td>
+              <button type="button" v-if="paper.penabled == 'yes'" class="btn  btn-gradient-primary btn-sm" @click="control('disable', paper.pid)"><i class="mdi mdi-book-open-variant"></i> 正在开放</button>
+              <button type="button" v-if="paper.penabled == 'no'" class="btn btn-rounded btn-inverse-light btn-sm" @click="control('enable', paper.pid)"><i class="mdi mdi-close-box-outline"></i> 未开放</button>
+            </td>
+            <td v-if="!judge_mode">
+              <button type="button" v-on:click="problem(paper.pid)" class="btn btn-rounded btn-inverse-warning btn-sm"><i class="mdi mdi-format-list-numbers"></i> 试题管理</button>
+            </td>
+            <td v-if="!judge_mode">
+               <button type="button" v-on:click="stulist(paper.pid)" class="btn btn-rounded btn-primary btn-sm"><i class="mdi mdi-account-multiple-plus"></i> 学生管理</button>
+            </td>
+            <td v-if="!judge_mode">
+              <button type="button" v-on:click="remove(paper.pid)" class="btn btn-rounded btn-inverse-danger btn-sm" ><i class="mdi mdi-delete-forever"></i> 删除试卷</button>
+<!--              <div v-if="paper.submitted > 0">本试题有提交记<br>录，不允许删除</div>-->
+            </td>
+            <td v-if="!judge_mode">
+              <button type="button" v-on:click="detail(paper.pid)" class="btn btn-rounded btn-inverse-info btn-sm"><i class="mdi mdi-information-outline"></i> 查看详情</button>
+            </td>
+            <td v-if="judge_mode">
+              <button type="button" v-on:click="judge(paper.pid)" class="btn btn-rounded btn-inverse-info btn-sm"><i class="mdi mdi-comment-text-outline"></i> 进入判题</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="../../js/paper-manage.js"></script>
+</body>
+
+</html>

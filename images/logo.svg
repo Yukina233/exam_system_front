@@ -1,0 +1,25 @@
+<svg width="210" height="55" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#e8feff" id="canvas_background" height="57" width="212" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <ellipse canvas="#ffffff" canvas-opacity="1" rx="601" id="svg_13" cy="63.928571" cx="301.452381" stroke-width="1.5" stroke="#000" fill="#e8feff"/>
+  <path id="svg_20" d="m36.603304,12.411157c-2.712313,-2.690782 -5.637691,-4.846267 -8.037404,-5.140125c-0.130639,-0.019061 -0.265943,-0.03018 -0.409024,-0.033357l-15.793311,0c-0.251946,0 -0.500782,0.10007 -0.678078,0.285915c-0.17574,0.18108 -0.279941,0.435227 -0.279941,0.694139l0,40.901797c0,0.257324 0.097979,0.503529 0.279941,0.690962c0.181961,0.184257 0.421466,0.284327 0.678078,0.284327l28.560154,0c0.251946,0 0.493006,-0.098482 0.674968,-0.284327c0.181961,-0.185845 0.283051,-0.43205 0.283051,-0.690962l0,-27.217565c-0.055988,-3.159366 -2.479029,-6.604647 -5.278434,-9.490805zm-1.34838,1.385102c1.251956,1.248498 2.377939,2.662191 3.217761,4.025055c-0.727845,-0.293858 -1.491461,-0.511471 -2.20842,-0.684609c-1.578554,-0.36216 -3.122892,-0.508294 -4.082466,-0.567066c0.004666,-0.21126 0.006221,-0.449523 0.006221,-0.708435c0,-1.380336 -0.085537,-3.348388 -0.55366,-5.082942c-0.004666,-0.015884 -0.007776,-0.031768 -0.013997,-0.047653c1.188192,0.800563 2.482139,1.863216 3.634561,3.065649zm4.707666,34.340037l-26.644117,0l0,-38.944864l14.839958,0l0,0.003177c0.646974,-0.03971 1.205299,0.61313 1.632986,2.106244c0.388806,1.421635 0.486785,3.275321 0.48523,4.560352c0.00311,0.941933 -0.041991,1.574124 -0.041991,1.574124l-0.076206,1.035649l1.020228,0.011119c0.004666,0 2.357721,0.028592 4.665675,0.563889c2.217751,0.489233 3.951827,1.464523 4.11357,2.568474c0.006221,0.098482 0.007776,0.196964 0.006221,0.289092l0,26.232745l-0.001555,0z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_23" y2="25.833333" x2="36.190476" y1="25.833333" x1="17.619048" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke="#000" stroke-linecap="null" stroke-linejoin="null" id="svg_24" y2="32.5" x2="36.190476" y1="32.5" x1="17.619048" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_25" y2="25.833333" x2="36.190476" y1="25.833333" x1="17.619048" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_27" y2="39.166667" x2="36.190476" y1="39.166667" x1="17.619048" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <text stroke="#000" transform="rotate(1.4793821573257446 25.726562500000075,8.453125000000037) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_28" y="16.785714" x="19.047619" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <text stroke="#000" transform="rotate(-12.17393684387207 20.258287429809602,16.10326004028321) matrix(0.24854882959559013,0,0,0.24256223186909906,8.654009418909997,18.4270376135005) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_29" y="-1.339325" x="26.666667" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">100</text>
+  <line stroke="#000" stroke-linecap="null" stroke-linejoin="null" id="svg_30" y2="18.690476" x2="25.714286" y1="21.071429" x1="17.142857" fill-opacity="null" stroke-opacity="null" fill="none"/>
+  <text stroke="#000" transform="matrix(1.3388891853124523,0,0,1.2499324864675143,-33.540096808112544,-11.283580544159328) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_31" y="41.643042" x="62.9836" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">TestOnline</text>
+ </g>
+</svg>

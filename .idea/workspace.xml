@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59273204-b2ed-4cef-95c4-8ab9c245c421" name="Default Changelist" comment="" />
+    <list default="true" id="59273204-b2ed-4cef-95c4-8ab9c245c421" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/page-bk.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/student-bkg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/t-bkg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/test-result.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/student/test-result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/upload-users-template.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/在线考试系统添加用户模版.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/在线考试系统试题模版.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/在线考试系统试题模版.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin-userlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin-userlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/paper-answers.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/paper-answers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/paper-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/paper-detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/test-taken.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/test-taken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/admin-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/admin-create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/admin-userlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/admin-userlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/test-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/test-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/test-taken.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/test-taken.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/student/test-testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/test-testing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/teacher/judge-zhuguan.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/judge-zhuguan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/teacher/paper-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/teacher/paper-create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/teacher.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="exam-new-front-master" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TavhgVRonXdKxfhqQkEFlZQiFX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -29,6 +63,7 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/pages/student" />
       <recent name="$PROJECT_DIR$/pages/teacher" />
     </key>
   </component>
@@ -87,11 +122,28 @@
       <workItem from="1575460246496" duration="3830000" />
       <workItem from="1575638375879" duration="12648000" />
       <workItem from="1575780476859" duration="7273000" />
-      <workItem from="1575931920076" duration="2496000" />
+      <workItem from="1575931920076" duration="36445000" />
+      <workItem from="1576151308780" duration="167000" />
+      <workItem from="1576376690082" duration="7207000" />
+      <workItem from="1576840325180" duration="5070000" />
+      <workItem from="1577163582966" duration="216000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

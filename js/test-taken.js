@@ -3,6 +3,8 @@ var vm = new Vue({
   el:'#app',
   data:{
     takenlist : '',
+    stuid_to_show: '',
+    answer_to_show: '',
   },
   methods:{
     get_taken_list:function(){
@@ -23,9 +25,24 @@ var vm = new Vue({
         alert('获取考试记录失败(2)');
       });
     },
-    showans:function(stuid, answer_str){
+     test_result:function(paperid){
+      //window.open("testing.html?paperid=" + paperid);
+      window.location.href = "test-result.html?paperid=" + paperid;
+    },
+    showans:function(stuid, answer_str_array){
+      console.log(answer_str_array[0].answers);
+      answer_str=answer_str_array[0].answers;
+      for(i=0;i<answer_str_array.length;i++)
+      {
+        console.log(answer_str_array[i].stuid);
+        if(answer_str_array[i].stuid==stuid)
+        {
+          answer_str=answer_str_array[i].answers;
+          break;
+        }
+      }
       console.log(answer_str);
-      answer_json = JSON.parse(answer_str)
+      answer_json = JSON.parse(answer_str);
       console.log(answer_json.answer_list);
       this.stuid_to_show = stuid;
       this.answer_to_show = answer_json.answer_list;
@@ -50,9 +67,33 @@ var vm = new Vue({
       document.getElementById("show_record").innerHTML = html;
       console.log(html);
       show_div();
+    },
+      get_student_answers:function(pid){
+      postdata = {
+        action: 'getans',
+        paperid: pid
+      };
+      this.$http.post(backend_server + 'judge-manage/', postdata, {credentials: true})
+      .then(function(res){
+        console.log(res.bodyText);
+        var dataret = JSON.parse(res.bodyText);
+        if (dataret.code == 200)
+        {
+          this.anslist = dataret.anslist;
+          this.showans(this.loginuser,dataret.anslist);
+        }
+        else
+        {
+          this.prolist = '获取试题列表失败(1)';
+        }
+      },function(res){
+        console.log(res.status);
+        this.prolist = '获取试题列表失败(2)';
+      });
     }
   },
   created:function(){
     this.get_taken_list();
+
   }
 })

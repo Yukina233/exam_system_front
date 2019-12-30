@@ -204,21 +204,32 @@ var vm = new Vue({
       });
     },
     generate_stutable:function(){
-      var tabledata = "<tr><td>";
-      tabledata += "<div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">";
+      var tabledata = " <thead>\n" +
+          "            <th>学号</th>\n" +
+          "            <th>姓名</th>\n" +
+          "            <th>操作</th>\n" +
+          "          </thead>";
+
+      tabledata += "<tr>";
+
       for (var i=0; i<this.stulist.count; i++)
       {
-        //tabledata += "<td>";
-        tabledata += "<input class=\"btn btn-outline-primary btn-sm\" type=\"button\" onclick=\"vm.remove_name(" +
-         this.stulist.stu_list[i].stu + ")\" value=\"" +
-         this.stulist.stu_list[i].stu + "\" />";
-        //tabledata += this.stulist.stu_list[i].stu;
-        //tabledata += "</td>";
-        if ((i + 1) % 8 == 0)
-        {
-          tabledata += "</div></td></tr><tr><td>";
-          tabledata += "<div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">";
-        }
+        tabledata += "<td>";
+        tabledata += this.stulist.stu_list[i].stu;
+        tabledata += "</td>";
+
+        tabledata += "<td>";
+        tabledata +="<button type=\"button\" onclick=\"vm.remove_name(\'"+ this.stulist.stu_list[i].stu  +"\')\" class=\"btn btn-rounded btn-inverse-danger btn-sm\" ><i class=\"mdi mdi-delete-forever\"></i> 删除</button>";
+        // tabledata += "<input class=\"btn btn-outline-primary btn-sm\" type=\"button\" onclick=\"vm.remove_name(" +
+        //  this.stulist.stu_list[i].stu + ")\" value=\"" +
+        //  删除+ "\" />";
+        tabledata += "</td>";
+        tabledata += "</tr><tr>";
+        // if ((i + 1) % 8 == 0)
+        // {
+        //   tabledata += "</div></td></tr><tr><td>";
+        //   tabledata += "<div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">";
+        // }
       }
       tabledata += "</tr>";
       $("#stutable").html(tabledata);

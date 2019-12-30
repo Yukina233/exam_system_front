@@ -10430,7 +10430,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .form-check-input:disabled ~ .form-check-label {
-  color: #9c9fa6;
+  color: #a60b12;
 }
 
 .form-check-label {
@@ -17020,6 +17020,10 @@ a.text-dark:hover, a.text-dark:focus {
   .table th {
     background-color: #ffffff !important;
   }
+  .table-tcol {
+    background-color: #ffffff !important;
+
+  }
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #dee2e6 !important;
@@ -17328,7 +17332,7 @@ input:focus {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #444c63;
+  background: #444c63e0;
   font-family: "ubuntu-regular", sans-serif;
   padding: 0;
   width: 210px;
@@ -18540,7 +18544,7 @@ html {
 }
 
 .content-wrapper {
-  background: #e1e8f1;
+  background: #e1e8f100;
   padding: 2.75rem 2.25rem;
   width: 100%;
   -webkit-flex-grow: 1;

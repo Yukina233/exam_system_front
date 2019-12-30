@@ -72,8 +72,7 @@
               <td v-if="paper.confirmed != 'yes'"><label class="badge badge-danger">未登记</label></td>
               <td v-if="paper.confirmed == 'yes'"><label class="badge badge-success">已登记</label></td>
               <td class="font-weight-bold" v-if="paper.confirmed == 'yes'">{{ paper.grade }}</td>
-              <td v-if="paper.confirmed == 'yes'"><button type="button" class="btn btn-rounded btn-inverse-info btn-sm" @click="showans(ans.stuid, ans.answers)"><i class="mdi mdi-information-outline"></i> 查看记录</button></td>
-
+              <td v-if="paper.confirmed == 'yes'"><button  type="button" v-on:click="test_result(paper.pid)" class="btn btn-rounded btn-inverse-info btn-sm" ><i class="mdi mdi-information-outline"></i> 查看记录</button></td>
             </tr>
           </tbody>
         </table>
@@ -84,3 +83,6 @@
 </body>
 
 </html>
+
+
+

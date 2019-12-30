@@ -7,7 +7,6 @@
   <script src="../../js/vue.min.js"></script>
   <script src="../../js/vue-resource.min.js"></script>
   <script src="../../js/common.js"></script>
-  <script src="../../backend.js"></script>
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../css/style.css">
@@ -31,6 +30,7 @@
     <thead>
       <tr>
         <th>用户名</th>
+        <th>姓名</th>
         <th>密码</th>
         <th>用户类型</th>
         <th>操作</th>
@@ -39,6 +39,7 @@
     <tbody>
       <tr v-for ="(user,index) in userlist">
         <td>{{ user.username }}</td>
+        <td> </td>
         <td>{{ user.password }}</td>
         <td v-if="user.usertype == 'student'"><label class="badge badge-info">学生用户</label></td>
         <td v-if="user.usertype == 'teacher'"><label class="badge badge-success">教师用户</label></td>
@@ -48,7 +49,8 @@
       </tr>
       <tr>
         <td><input type="text" id="name" v-model="postdata.username" class="form-control" placeholder="待添加账户的账号..." /></td>
-        <td><input type="text" id="age"v-model="postdata.password" class="form-control" placeholder="待添加账户的密码..."/></td>
+        <td><input type="text" id="id" v-model="postdata.name" class="form-control" placeholder="待添加账户的姓名..."/></td>
+        <td><input type="text" id="age" v-model="postdata.password" class="form-control" placeholder="待添加账户的密码..."/></td>
         <td>
           <select v-model="postdata.usertype" name="usertype" class="form-control">
             <option value="">选择一个类别</option>

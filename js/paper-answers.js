@@ -12,7 +12,7 @@ var vm = new Vue({
   methods:{
     showans:function(stuid, answer_str){
       console.log(answer_str);
-      answer_json = JSON.parse(answer_str)
+      answer_json = JSON.parse(answer_str);
       console.log(answer_json.answer_list);
       this.stuid_to_show = stuid;
       this.answer_to_show = answer_json.answer_list;

@@ -3,7 +3,7 @@ var vm = new Vue({
   el:'#usermanage',
   data:{
     user: {
-      username: '', password: '', usertype: ''
+      username: '', password: '', usertype: '',name:''
     },
     userlist: [
       {username: 'user1', password: 'u1', usertype: 'student'},
@@ -13,13 +13,14 @@ var vm = new Vue({
       username: '',
       password: '',
       usertype: '',
-      batch_names: ''
+      batch_names: '',
+      name:'',
     },
   },
   methods:{
     insert:function(){
       console.log(this.postdata);
-      if (this.postdata.username == '' || this.postdata.password == '' || this.postdata.usertype == '')
+      if (this.postdata.username == '' || this.postdata.password == '' || this.postdata.usertype == ''||this.postdata.name == '')
       {
         alert('用户信息不能有缺省');
         return;

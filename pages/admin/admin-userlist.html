@@ -39,7 +39,7 @@
     <tbody>
       <tr v-for ="(user,index) in userlist">
         <td>{{ user.username }}</td>
-        <td> </td>
+        <td>{{ user.infoname }}</td>
         <td>{{ user.password }}</td>
         <td v-if="user.usertype == 'student'"><label class="badge badge-info">学生用户</label></td>
         <td v-if="user.usertype == 'teacher'"><label class="badge badge-success">教师用户</label></td>

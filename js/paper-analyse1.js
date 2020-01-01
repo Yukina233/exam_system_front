@@ -1,4 +1,4 @@
-  var doughnutPieData = {
+ /* var doughnutPieData = {
     datasets: [{
       data: [30, 40, 30],
       backgroundColor: [
@@ -32,8 +32,7 @@
       animateScale: true,
       animateRotate: true
     }
-  };
-
+  };*/
 var vm = new Vue({
   el:'#app',
   data:{
@@ -330,3 +329,4 @@ var vm = new Vue({
       });
     }
   });*/
+

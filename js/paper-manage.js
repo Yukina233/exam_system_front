@@ -67,6 +67,9 @@ var vm = new Vue({
       // redirect to show detail
       window.location.href = "paper-stulist.html?paperid=" + paperid;
     },
+    analyse:function(paperid) {
+      window.location.href = "paper-analyse.html?paperid=" +paperid;
+    },
     problem:function(paperid){
       window.location.href = "paper-problem.html?paperid=" + paperid;
     },

@@ -40,6 +40,7 @@
             <th v-if="!judge_mode">管理学生</th>
             <th v-if="!judge_mode">删除试卷</th>
             <th v-if="!judge_mode">查看试卷</th>
+            <th v-if="judge_mode">成绩统计</th>
             <th v-if="judge_mode">进入判题</th>
           </tr>
         </thead>
@@ -67,6 +68,9 @@
             </td>
             <td v-if="!judge_mode">
               <button type="button" v-on:click="detail(paper.pid)" class="btn btn-rounded btn-inverse-info btn-sm"><i class="mdi mdi-information-outline"></i> 查看详情</button>
+            </td>
+            <td v-if="judge_mode">
+              <button type="button" v-on:click="analyse(paper.pid)" class="btn btn-rounded btn-inverse-warning btn-sm"><i class="mdi mdi-information-outline"></i> 成绩详情</button>
             </td>
             <td v-if="judge_mode">
               <button type="button" v-on:click="judge(paper.pid)" class="btn btn-rounded btn-inverse-info btn-sm"><i class="mdi mdi-comment-text-outline"></i> 进入判题</button>

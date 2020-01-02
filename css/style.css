@@ -18688,8 +18688,8 @@ code {
 }
 
 .stretch-card > .card {
-  width: 100%;
-  min-width: 150%;
+  width: 200%;
+  min-width: 200%;
 }
 
 @media (min-width: 576px) {

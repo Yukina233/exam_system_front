@@ -5,7 +5,8 @@ window.onload = function(){
   var verify = new Vue({
     el:'#verify',
     data:{
-      loginuser : ''
+      loginuser : '',
+      infoname:''
     },
     methods:{
       logout:function(){
@@ -38,6 +39,9 @@ window.onload = function(){
         if (dataret.code == 200)
         {
           this.loginuser = dataret.username;
+          this.infoname  = dataret.infoname;
+          console.log(this.infoname )
+
         }
         else
         {
@@ -63,18 +67,18 @@ function getQueryString(name) {
  * which div is named `overdiv` with  *
  * an empty div named `over`          */
 
-function show_div()
+function show_div(start,end)
 {
-  var overdiv = document.getElementById('overdiv');
-  var over = document.getElementById('over');
+  var overdiv = document.getElementById(start);
+  var over = document.getElementById(end);
   overdiv.style.display = "block";
   over.style.display = "block";
 }
 
-function hide_div()
+function hide_div(start,end)
 {
-  var overdiv = document.getElementById('overdiv');
-  var over = document.getElementById('over');
+  var overdiv = document.getElementById(start);
+  var over = document.getElementById(end);
   overdiv.style.display = "none";
   over.style.display = "none";
 }

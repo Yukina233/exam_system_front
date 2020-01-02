@@ -28,6 +28,7 @@ var vm = new Vue({
         {"stu": "16006"},
         {"stu": "16007"}
       ],
+      stu_info:{}
     },
     batch_names: '',
     prolist : '',
@@ -182,7 +183,6 @@ var vm = new Vue({
     get_paper_detail:function(){
       this.$http.get(backend_server + 'paper-get-detail/?id=' + this.paperid, {credentials: true})
       .then(function(res){
-        console.log(res.bodyText);
         var dataret = JSON.parse(res.bodyText);
         if (dataret.code == 200)
         {
@@ -191,6 +191,7 @@ var vm = new Vue({
           this.prolist = dataret.paper.question_list;*/
           this.prolist = dataret.paper;
           this.stulist = dataret.stulist;
+          console.log(this.stulist);
           //console.log(this.prolist);
           this.generate_stutable();
         }
@@ -204,18 +205,24 @@ var vm = new Vue({
       });
     },
     generate_stutable:function(){
-      var tabledata = " <thead>\n" +
+      var tabledata = " <table class=\"table table-hover\">" +
+          "<thead><tr>\n" +
           "            <th>学号</th>\n" +
           "            <th>姓名</th>\n" +
           "            <th>操作</th>\n" +
-          "          </thead>";
-
+          "          </tr></thead>";
+      tabledata += "<tbody>";
       tabledata += "<tr>";
 
       for (var i=0; i<this.stulist.count; i++)
       {
+        tmp = this.stulist.stu_list[i].stu;
         tabledata += "<td>";
         tabledata += this.stulist.stu_list[i].stu;
+        tabledata += "</td>";
+
+        tabledata += "<td>";
+        tabledata += this.stulist.stu_info[i];
         tabledata += "</td>";
 
         tabledata += "<td>";
@@ -232,8 +239,12 @@ var vm = new Vue({
         // }
       }
       tabledata += "</tr>";
+      tabledata += "</tbody>";
+      tabledata += "<table>";
       $("#stutable").html(tabledata);
     }
+
+
   },
   created:function(){
     this.paperid = getQueryString('paperid');

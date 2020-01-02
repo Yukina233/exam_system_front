@@ -38,7 +38,7 @@
           </tr>
         </table>
       </p>
-      <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()" /><i class="mdi mdi-window-close"></i> 关闭本窗口</button>
+      <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')" /><i class="mdi mdi-window-close"></i> 关闭本窗口</button>
       <div></div>
     </div>
   </div>
@@ -59,7 +59,7 @@
           <tr>
             <td>试卷编号</td><td>{{ paper.pid }}</td>
             <td>试卷名称</td><td>{{ paper.pname }}</td>
-            <td>出题老师</td><td>{{ paper.teaname }}</td>
+            <td>出题老师</td><td>{{ paper.infoname }}</td>
           </tr>
           <tr>
             <td>是否开放</td>

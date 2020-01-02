@@ -21,21 +21,41 @@
 
 
 <div id="app">
-  <!-- 批量添加学生弹窗 -->
-  <div id="overdiv" class="card">
+  <!-- 添加学生弹窗 -->
+  <div id="load" class="card">
     <div class="card-body">
       <h2 class="card-title">添加学生</h2>
-      <p class="card-description">请在下面的输入框中添加学生的学号，用';'分开</p>
+      <p class="card-description">请在下面的输入框中添加学生的学号</p>
       <form>
-        <textarea rows="10" cols="50" id="batch_names" class="form-control" v-model="batch_names" placeholder="请用;分开学生学号..."></textarea><br>
-        <button type="button" class="btn btn-google btn-fw" @click="batch_insert" /><i class="mdi mdi-account-multiple-plus"></i> 批量添加</button>
+        <textarea rows="1" cols="5" id="batch_names" class="form-control" v-model="batch_names" placeholder="请用;分开学生学号..."></textarea><br>
+        <button type="button" class="btn btn-google btn-fw" @click="batch_insert" /><i class="mdi mdi-account-multiple-plus"></i> 添加</button>
 <!--        <button type="reset" class="btn btn-warning btn-fw" /><i class="mdi mdi-delete-variant"></i> 清空输入框</button>-->
-        <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()" /><i class="mdi mdi-window-close"></i> 取消</button>
+        <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('load','over_load')" /><i class="mdi mdi-window-close"></i> 取消</button>
       </form>
       <div></div>
     </div>
   </div>
+  <div id="over_load"></div>
+
+<!--  文件批量添加弹窗-->
+   <div id="overdiv" class="card">
+      <div class="card-body">
+          <h2 class="card-title">批量添加用户</h2>
+          <p class="card-description">请下载 Excel 模板填写后上传：<a href="../../files/在线考试系统添加用户模版.xls">下载模板</a></p>
+          <form>
+              <p><input type="file" id="upload_userlist" class="form-control"></p>
+              <p>
+                  <button type="button" class="btn btn-gradient-primary btn-fw" @click="upload_user()"/>
+                  <i class="mdi mdi-cloud-upload"></i> 上传</button>
+                  <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')"/>
+                  <i class="mdi mdi-window-close"></i> 取消</button>
+              </p>
+          </form>
+          <div></div>
+      </div>
+  </div>
   <div id="over"></div>
+
 
   <div class="page-header">
   <h1>学生管理</h1>
@@ -51,7 +71,8 @@
             <tbody id="stutable"></tbody>
           </table>
           <p>
-            <button type="button" class="btn btn-gradient-info btn-google" onclick="show_div()" /><i class="mdi mdi-account-multiple-plus"></i> 添加学生</button>
+            <button type="button" class="btn btn-gradient-info btn-google" onclick="show_div('load','over_load')" /><i class="mdi mdi-account-multiple-plus"></i> 添加学生</button>
+            <button type="button" class="btn btn-google btn-fw" onclick="show_div('overdiv','over')" /><i class="mdi mdi-account-multiple-plus"></i> 批量添加</button>
             <button type="button" class="btn btn-gradient-danger btn-google" @click="delete_all_names" /><i class="mdi mdi-delete-forever"></i> 清空学生列表</button>
 
           </p>

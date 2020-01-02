@@ -392,7 +392,7 @@ $(function () {
 
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-            '²»¼°¸ñ',
+            'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
             '60-70',
             '70-80',
             '80-90',
@@ -405,7 +405,7 @@ $(function () {
         var gradeChart1 = new Chart(gradeChart1Canvas, {
             type: 'pie',
             data: doughnutPieData,
-            options: doughnutPieOptions
+            options: doughnutPiehOptions
         });
     }
 });

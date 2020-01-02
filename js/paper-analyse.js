@@ -1,47 +1,17 @@
- /* var doughnutPieData = {
-    datasets: [{
-      data: [30, 40, 30],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-    }],
 
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-      'Pink',
-      'Blue',
-      'Yellow',
-    ]
-  };
-  var doughnutPieOptions = {
-    responsive: true,
-    animation: {
-      animateScale: true,
-      animateRotate: true
-    }
-  };*/
-var vm = new Vue({
+
+$(function() {
+  var vm = new Vue({
   el:'#app',
   data:{
     paperid: '',
     paper: '',
     anslist: '',
+    illulist:'',
     answer_content: '',
     stuid_to_show: '',
     answer_to_show: '',
+    flag : false
   },
   methods:{
     showans:function(stuid, answer_str){
@@ -63,7 +33,7 @@ var vm = new Vue({
         {
           html += '<td>主观题</td>';
         }
-        
+
         html += '<td>' + answer_json.answer_list[i].point + '</td>';
         html += '<td>' + answer_json.answer_list[i].answer + '</td>';
         html += '</tr>';
@@ -127,6 +97,9 @@ var vm = new Vue({
         if (dataret.code == 200)
         {
           this.anslist = dataret.anslist;
+          this.illulist = dataret.illulist;
+          console.log(dataret.anslist);
+          console.log(dataret.illulist);
         }
         else
         {
@@ -137,108 +110,7 @@ var vm = new Vue({
         this.prolist = '获取试题列表失败(2)';
       });
     },
-    judge_keguan:function(){
-      // TODO: Send command to backend and refresh
-      postdata = {
-        action: 'judge_keguan',
-        paperid: this.paperid
-      };
-      this.$http.post(backend_server + 'judge-keguan/', postdata, {credentials: true})
-      .then(function(res){
-        console.log(res.bodyText);
-        var dataret = JSON.parse(res.bodyText);
-        if (dataret.code == 200)
-        {
-          alert('客观题判定成功');
-          location.reload();
-        }
-        else
-        {
-          alert('自动判定客观题失败(1)');
-        }
-      },function(res){
-        console.log(res.status);
-        alert('自动判定客观题失败(2)');
-      });
-    },
-    clean_keguan:function(){
-      // Send command to backend and refresh
-      postdata = {
-        action: 'clean_keguan',
-        paperid: this.paperid
-      };
-      this.$http.post(backend_server + 'judge-keguan/', postdata, {credentials: true})
-      .then(function(res){
-        console.log(res.bodyText);
-        var dataret = JSON.parse(res.bodyText);
-        if (dataret.code == 200)
-        {
-          alert('客观题判定结果清除成功');
-          location.reload();
-        }
-        else
-        {
-          alert('客观题判定结果清除失败(1)');
-        }
-      },function(res){
-        console.log(res.status);
-        alert('客观题判定结果清除失败(2)');
-      });
-    },
-    judge_zhuguan:function(stuid, paperid){
-      window.location.href = 'judge-zhuguan.html?paperid=' + paperid + '&stuid=' + stuid;
-    },
-    clean_zhuguan:function(){
-      postdata = {
-        action: 'clean_zhuguan',
-        paperid: this.paperid
-      };
-      this.$http.post(backend_server + 'judge-zhuguan/', postdata, {credentials: true})
-      .then(function(res){
-        console.log(res.bodyText);
-        var dataret = JSON.parse(res.bodyText);
-        if (dataret.code == 200)
-        {
-          alert('主观题判定结果清除成功');
-          location.reload();
-        }
-        else
-        {
-          alert('主观题判定结果清除失败(1)');
-        }
-      },function(res){
-        console.log(res.status);
-        alert('主观题判定结果清除失败(2)');
-      });
-    },
-    start_zhuguan:function(){
-      postdata = {
-        action: 'nextid',
-        paperid: this.paperid,
-      };
-      this.$http.post(backend_server + 'judge-zhuguan/', postdata, {credentials: true})
-      .then(function(res){
-        console.log(res.bodyText);
-        var dataret = JSON.parse(res.bodyText);
-        if (dataret.code == 200)
-        {
-          window.location.href = "judge-zhuguan.html?paperid=" + this.paperid 
-            + "&stuid=" + dataret.nextid;
-        }
-        else if (dataret.code == 201)
-        {
-          alert('所有学生均已有主观题分数');
-          window.location.href = "paper-answers.html?paperid=" + this.paperid;
-        }
-        else
-        {
-          alert('获取下个学生失败(1)');
-        }
-      },function(res){
-        console .log(res.status);
-        alert('获取下个学生失败(2)');
-      });
-    },
+
     submit_grade:function(){
       postdata = {
         action: 'submit',
@@ -261,71 +133,73 @@ var vm = new Vue({
         console .log(res.status);
         alert('成绩提交失败(2)');
       });
-    }
+    },
+     illustrate:function () {
+      var doughnutPieData = {
+      datasets: [{
+        data: this.illulist,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(153, 102, 255, 0.5)',
+          'rgba(255, 159, 64, 0.5)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+      }],
+
+      // These labels appear in the legend and in the tooltips when hovering different arcs
+      labels: [
+        '不及格',
+        '60-70分',
+        '70-80分',
+          '80-90分',
+          '90-100分'
+      ],
+      set_data: function (value) {
+        this.datasets[0].data[0] = 1;
+      }
+    };
+
+    var doughnutPieOptions = {
+      responsive: true,
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    };
+
+
+    var gradeChart1Canvas = $("#gradeChart1").get(0).getContext("2d");
+    console.log(this.illulist);
+    var gradeChart1 = new Chart(gradeChart1Canvas, {
+      type: 'pie',
+      data: doughnutPieData,
+      options: doughnutPieOptions
+    });
+
+
+     }
   },
+
   created:function(){
     this.paperid = getQueryString('paperid');
+     console.log(this.paperid);
     this.get_paper_detail();
     this.get_student_answers();
+    this.flag = true;
+    this.illustrate();
   }
 });
-
-  /*$(function() {
-    'use strict';
-    if ($("#pieChart").length) {
-      var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-
-      var gl60 = 0;
-      var gl70 = 0;
-      var gl80 = 0;
-      var gl90 = 0;
-      var gl100 = 0;
-      for (let index, ans in anslist) {
-        var sum = (ans.keguan_grade == -1 ? 0 : ans.keguan_grade) + (ans.zhuguan_grade == -1 ? 0 : ans.zhuguan_grade);
-        if (sum < 60)
-          gl60++;
-        else if (sum < 70)
-          gl70++;
-        else if (sum < 80)
-          gl80++;
-        else if (sum < 90)
-          gl90++;
-        else
-          gl100++;
-      }
-      var pieChart = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: {
-          datasets: [{
-            data: [gl60, gl70, gl80, gl90, gl100],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.5)',
-              'rgba(54, 162, 235, 0.5)',
-              'rgba(255, 206, 86, 0.5)',
-              'rgba(75, 192, 192, 0.5)',
-              'rgba(153, 102, 255, 0.5)',
-              'rgba(255, 159, 64, 0.5)'
-            ],
-            borderColor: [
-              'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-            ],
-          }],
-
-          // These labels appear in the legend and in the tooltips when hovering different arcs
-          labels: [
-            '不及格',
-            '60-70',
-            '70-80',
-            '80-90',
-            '90-100',
-          ]
-        },
-        options: doughnutPieOptions
-      });
-    }
-  });*/
+  // $("#show_pie").click(function () {
+  //
+  // });
+});

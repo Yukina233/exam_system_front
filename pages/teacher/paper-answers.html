@@ -85,33 +85,16 @@
         <div class="card-body">
           <h2 class="card-title">判题操作</h2>
           <table class="table">
-            <thead>
-              <th>操作</th>
-<!--              <th>说明</th>-->
-            </thead>
             <tbody>
               <tr>
-                <td><button class="btn btn-rounded btn-inverse-primary btn-block" @click="judge_keguan()"> 自动判定客观题</button></td>
-                <td>由判题系统自动对当前所有提交的答案中客观题部分进行判定</td>
-              </tr>
-              <tr>
-                <td><button class="btn btn-rounded btn-inverse-success btn-block" @click="start_zhuguan()"> 进入主观题判定</button></td>
-                <td>从提交列表中自动选择未判主观题的提交继续判题</td>
-              </tr>
-              <tr>
-                <td><button class="btn btn-rounded btn-inverse-warning btn-block" @click="clean_keguan()"> 清除客观题判定</button></td>
-                <td>清除当前所有客观题判定结果</td>
-              </tr>
-              <tr>
-                <td><button class="btn btn-rounded btn-inverse-danger btn-block" @click="clean_zhuguan()"> 清除主观题判定</button></td>
-                <td>清除当前所有主观题判定结果（<label class="badge bg-warning">该操作不可逆，请谨慎操作</label>）</td>
-              </tr>
-              <tr>
-                <td><button class="btn btn-rounded btn-inverse-info btn-block" @click="submit_grade()"> 提交成绩</button></td>
-                <td>以当前状态提交列表中的学生成绩（<label class="badge bg-warning">提交后，该学生判题情况将不能修改</label>）</td>
+                <td><button class="btn btn-rounded btn-inverse-primary btn-block" @click="judge_keguan()"><i class="mdi mdi-checkbox-multiple-marked-circle-outline"></i> 自动判定客观题</button></td>
+                <td><button class="btn btn-rounded btn-inverse-success btn-block" @click="start_zhuguan()"><i class="mdi  mdi-checkbox-multiple-marked-outline"></i> 进入主观题判定</button></td>
+                <td><button class="btn btn-rounded btn-inverse-warning btn-block" @click="clean_keguan()"> <i class="mdi  mdi-eraser"></i>清除客观题判定</button></td>
+                <td><button class="btn btn-rounded btn-inverse-danger btn-block" @click="clean_zhuguan()">  <i class="mdi  mdi-eraser-variant"></i>清除主观题判定</button></td>
               </tr>
             </tbody>
-          </table> 
+          </table>
+          <div>     <td><button class="btn btn-rounded btn-inverse-info btn-block" @click="submit_grade()">  <i class="mdi  mdi-folder-upload"></i> 提交成绩</button></td></div>
           <p>
 <!--            &lt;!&ndash;<button type="button" class="btn btn-rounded btn-inverse-danger btn-block" @click="delete_all_names" /><i class="mdi mdi-delete-forever"></i> 清空准考学生列表</button>-->
 <!--            <button type="button" class="btn btn-rounded btn-inverse-info btn-block" onclick="show_div()" /><i class="mdi mdi-account-multiple-plus"></i> 批量导入学生</button>&ndash;&gt;-->
@@ -128,8 +111,7 @@
       <p class="card-description">如果有学生错误提交，可以删除记录让改学生重新提交 </p>
       <table class="table">
         <thead>
-          <th>试卷编号</th>
-          <th>学生姓名</th>
+          <th>学生学号</th>
           <th>提交时间</th>
           <th>是否提交</th>
           <th>客观题得分</th>
@@ -141,7 +123,6 @@
         </thead>
         <tbody>
           <tr v-for="(ans, index) in anslist">
-            <td>{{ ans.paperid }}</td>
             <td>{{ ans.stuid }}</td>
             <td>{{ ans.submit_time }}</td>
             <td v-if="ans.confirmed == 'no'"><label class="badge bg-warning">未提交</label></td>
@@ -155,7 +136,7 @@
             <td><button type="button" class="btn btn-rounded btn-inverse-info btn-sm" @click="showans(ans.stuid, ans.answers)"><i class="mdi mdi-information-outline"></i> 查看记录</button></td>
             <td><button type="button" class="btn btn-rounded btn-inverse-light btn-sm" @click="judge_zhuguan(ans.stuid, paper.pid)"><i class="mdi mdi-comment-check-outline"></i> 判主观题</button></td>
             <td v-if="ans.confirmed == 'no'"><button type="button" class="btn btn-rounded btn-inverse-danger btn-sm" @click="delans(ans.stuid)"><i class="mdi mdi-delete"></i> 删除记录</button></td>
-            <td v-if="ans.confirmed == 'yes'">不可删除已提交记录</td>
+            <td v-if="ans.confirmed == 'yes'">已提交,无法删除</td>
           </tr>
         </tbody>
       </table>

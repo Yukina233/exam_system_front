@@ -43,7 +43,6 @@ var vm = new Vue({
     answer_content: '',
     stuid_to_show: '',
     answer_to_show: '',
-    score_list:''
   },
   methods:{
     showans:function(stuid, answer_str){
@@ -130,6 +129,7 @@ var vm = new Vue({
         if (dataret.code == 200)
         {
           this.anslist = dataret.anslist;
+          console.log(this.anslist);
         }
         else
         {
@@ -196,6 +196,11 @@ var vm = new Vue({
         action: 'clean_zhuguan',
         paperid: this.paperid
       };
+      var se = confirm("清除之后不可恢复，您确定要清除吗？");
+      if(se == false)
+      {
+        return;
+      }
       this.$http.post(backend_server + 'judge-zhuguan/', postdata, {credentials: true})
       .then(function(res){
         console.log(res.bodyText);
@@ -247,6 +252,11 @@ var vm = new Vue({
         action: 'submit',
         paperid: this.paperid,
       };
+      se = confirm("提交之后无法再更改，请问您是否提交？");
+      if (se == false)
+      {
+        return;
+      }
       this.$http.post(backend_server + 'judge-manage/', postdata, {credentials: true})
       .then(function(res){
         console.log(res.bodyText);

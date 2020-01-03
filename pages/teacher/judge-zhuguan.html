@@ -78,24 +78,24 @@
       <p class="card-description">请在下方对该学生主观题进行评分；若该记录已被评分，则显示的是最新一次提交的分数；需查看题干或答案请点击“查看题目”按钮</p>
       <table class="table">
         <thead>
-          <th>(#)</th>
+          <th>题号</th>
           <!-- <th>题目编号</th> -->
-          <th>查看题目</th>
           <th>学生答案</th>
           <th>本题分值</th>
           <th>本题得分</th>
           <th colspan="2">操作</th>
+          <th>查看题目</th>
         </thead>
         <tbody>
           <tr v-for="(pro, index) in anslist">
             <td>{{ index + 1 }}</td>
             <!-- <td>{{ pro.id }}</td> -->
-            <td><button type="button" class="btn btn-gradient-info btn-sm" @click="show_pro(pro.id)"><i class="mdi mdi-eye"></i></button></td>
             <td class="font-weight-bold">{{ pro.answer }}</td>
             <td>{{ pro.point }}</td>
             <td><input type="number" v-bind:max="pro.point" min="0" class="form-control" v-model="pro.score" v-bind:value="pro.score" /></td>
             <td><button type="button" class="btn btn-gradient-danger btn-sm" @click="this_zero(index)"> 本题零分</button></td>
             <td><button type="button" class="btn btn-gradient-success btn-sm" @click="this_full(index, pro.score)"> 本题满分</button></td>
+            <td><button type="button" class="btn btn-gradient-info btn-sm" @click="show_pro(pro.id)"><i class="mdi mdi-eye"></i></button></td>
           </tr>
         </tbody>
       </table>

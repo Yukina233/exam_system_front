@@ -9699,6 +9699,10 @@ pre code {
     flex: 0 0 33.33333%;
     max-width: 33.33333%;
   }
+  .col-lg-4up {
+    flex: 0 0 33.4%;
+    max-width: 33.4%;
+  }
   .col-lg-5 {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
@@ -18690,6 +18694,7 @@ code {
 .stretch-card > .card {
   width: 100%;
   min-width: 150%;
+  overflow: auto;
 }
 
 @media (min-width: 576px) {

@@ -148,13 +148,17 @@ var vm = new Vue({
           location.reload();
         }
       });
-    }
+    },
+     store : function(){
+        window.location.href = "question-store.html?paperid=" + this.paperid;
+      }
   },
+
   created:function(){
     this.paperid = getQueryString('paperid');
     this.get_paper_detail();
   }
-})
+});
 
 
 

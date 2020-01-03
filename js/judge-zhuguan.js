@@ -161,6 +161,7 @@ var vm = new Vue({
       this.anslist[index]['score'] = this.anslist[index]['point'];
     },
     show_pro:function(id){
+      show_div('overdiv',"over");
       postdata = {
         action: 'getpro',
         paperid: this.paperid,

@@ -180,7 +180,7 @@ $(function () {
                     ],
 
                      datasets: [{
-                    label: '# of Votes',
+                    label: '人数',
                     data: this.illulist,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -265,7 +265,6 @@ $(function () {
             console.log(this.paperid);
             this.get_paper_detail();
             this.get_student_answers();
-            this.flag = true;
             this.illustrate();
         }
     });

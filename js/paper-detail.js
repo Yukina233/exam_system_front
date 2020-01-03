@@ -1,4 +1,3 @@
-
 var vm = new Vue({
   el:'#app',
   data:{
@@ -250,6 +249,7 @@ var vm = new Vue({
     this.paperid = getQueryString('paperid');
     this.get_paper_detail();
   }
+
 })
 
 

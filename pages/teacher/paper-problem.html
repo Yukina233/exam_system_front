@@ -34,7 +34,7 @@
                 <p>
                     <button type="button" class="btn btn-gradient-primary btn-fw" @click="upload_paper()"/>
                     <i class="mdi mdi-cloud-upload"></i> 上传</button>
-                    <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()"/>
+                    <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')"/>
                     <i class="mdi mdi-window-close"></i> 取消</button>
                 </p>
             </form>
@@ -60,7 +60,7 @@
     <!--            <tbody>-->
     <!--              <tr><td>试卷编号</td><td>{{ paper.pid }}</td></tr>-->
     <!--              <tr><td>试卷名称</td><td>{{ paper.pname }}</td></tr>-->
-    <!--              <tr><td>出题老师</td><td>{{ paper.teaname }}</td></tr>-->
+    <!--              <tr><td>出题老师</td><td>{{ paper.infoname }}</td></tr>-->
     <!--              <tr>-->
     <!--                <td>是否开放</td>-->
     <!--                <td v-if="paper.penabled == 'no'">否</td><td v-if="paper.penabled == 'yes'">是</td>-->
@@ -161,7 +161,7 @@
                             class="mdi mdi-note-plus"></i> 添加试题
                     </button>
                     <!--            <button type="button" class="btn btn-gradient-warning btn-md" @click="reset()"><i class="mdi mdi-delete-variant"></i> 重填表单</button>-->
-                    <button type="button" class="btn btn-rounded btn-inverse-info btn-md" onclick="show_div()"><i
+                    <button type="button" class="btn btn-rounded btn-inverse-info btn-md" onclick="show_div('overdiv','over')"><i
                             class="mdi mdi-playlist-plus"></i> 批量导入
                     </button>
                     <button type="button" class="btn btn-rounded btn-inverse-success btn-md"><i

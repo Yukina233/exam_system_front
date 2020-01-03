@@ -49,7 +49,7 @@ body{
             <tr v-for ="(paper, index) in testlist">
               <td>{{ paper.pid }}</td>
               <td>{{ paper.pname }}</td>
-              <td>{{ paper.teaname }}</td>
+              <td>{{ paper.infoname }}</td>
               <td>{{ paper.prolist }}</td>
               <td>{{ paper.stulist }}</td>
               <td v-if="paper.penabled == 'no'"><label class="badge badge-danger">未开放</label></td>

@@ -42,7 +42,7 @@
         </table>
         </div>
       </p>
-      <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()" /><i class="mdi mdi-window-close"></i> 关闭本窗口</button>
+      <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')" /><i class="mdi mdi-window-close"></i> 关闭本窗口</button>
       <div></div>
     </div>
   </div>
@@ -67,7 +67,7 @@
             <tr v-for ="(paper, index) in takenlist">
               <td>{{ paper.pid }}</td>
               <td>{{ paper.pname }}</td>
-              <td>{{ paper.teaname }}</td>
+              <td>{{ paper.infoname }}</td>
               <td>{{ paper.subtime }}</td>
               <td v-if="paper.confirmed != 'yes'"><label class="badge badge-danger">未登记</label></td>
               <td v-if="paper.confirmed == 'yes'"><label class="badge badge-success">已登记</label></td>

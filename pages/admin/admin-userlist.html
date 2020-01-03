@@ -32,7 +32,7 @@
                 <p>
                     <button type="button" class="btn btn-gradient-primary btn-fw" @click="upload_user()"/>
                     <i class="mdi mdi-cloud-upload"></i> 上传</button>
-                    <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div()"/>
+                    <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')"/>
                     <i class="mdi mdi-window-close"></i> 取消</button>
                 </p>
             </form>
@@ -40,10 +40,6 @@
         </div>
     </div>
     <div id="over"></div>
-
-    <div class="page-header">
-        <h1>试题管理</h1>
-    </div>
 
     <div class="page-header">
         <h1>用户列表</h1>
@@ -95,7 +91,7 @@
                 </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-rounded btn-inverse-info btn-md" onclick="show_div()"><i class="mdi mdi-playlist-plus"></i> 批量导入</button>
+            <button type="button" class="btn btn-rounded btn-inverse-info btn-md" onclick="show_div('overdiv','over')"><i class="mdi mdi-playlist-plus"></i> 批量导入</button>
         </div>
     </div>
 </div>

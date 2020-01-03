@@ -83,14 +83,16 @@
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">成绩统计饼状图</h4>
+                    <h4 class="card-title">成绩统计图</h4>
                     <button type="button" class="btn-gradient-info btn-block" @click="illustrate()"><i
-                            class="mdi mdi-account-card-details"></i> 查看饼状图
+                            class="mdi mdi-account-card-details"></i> 查看统计图
                     </button>
-                    <canvas id="gradeChart1" style="height:50px"></canvas>
+                    <canvas id="gradeChart1" style="height:100px"></canvas>
+                     <canvas id="gradeChart2" style="height:100px"></canvas>
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -103,20 +105,16 @@
             <table class="table">
                 <thead>
                 <th>学生学号</th>
-                <th>学生姓名</th>
                 <th>提交时间</th>
-                <th>是否提交</th>
                 <th>客观题得分</th>
                 <th>主观题得分</th>
                 <th>当前总分</th>
                 </thead>
                 <tbody>
                 <tr v-for="(ans, index) in anslist" v-if="ans.confirmed == 'yes'">
-                    <td>{{ ans.paperid }}</td>
                     <td>{{ ans.stuid }}</td>
                     <td>{{ ans.submit_time }}</td>
                     <td v-if="ans.confirmed == 'no'"><label class="badge bg-warning">未提交</label></td>
-                    <td v-if="ans.confirmed == 'yes'"><label class="badge bg-success">已提交</label></td>
                     <td v-if="ans.keguan_grade == -1"><label class="badge bg-warning">未判题</label></td>
                     <td v-if="ans.keguan_grade != -1">{{ ans.keguan_grade }}</td>
                     <td v-if="ans.zhuguan_grade == -1"><label class="badge bg-warning">未判题</label></td>

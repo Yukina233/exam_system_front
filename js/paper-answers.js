@@ -43,9 +43,11 @@ var vm = new Vue({
     answer_content: '',
     stuid_to_show: '',
     answer_to_show: '',
+    score_list:''
   },
   methods:{
     showans:function(stuid, answer_str){
+      show_div('overdiv','over');
       console.log(answer_str);
       answer_json = JSON.parse(answer_str);
       console.log(answer_json.answer_list);

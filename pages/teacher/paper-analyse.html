@@ -30,39 +30,63 @@
     </div>
 
 
-
-        <div class="col-lg-4 grid-margin stretch-card">
-          <div class="card">
+    <div class="col-lg-4 grid-margin stretch-card">
+        <div class="card">
             <div class="card-body">
-              <h3 class="card-title">基本信息</h3>
-              <table class="table table-striped">
-                <thead>
-                  <tr><th>项目</th><th>数据</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>试卷编号</td><td>{{ paper.pid }}</td></tr>
-                  <tr><td>试卷名称</td><td>{{ paper.pname }}</td></tr>
-                  <tr><td>出题老师</td><td>{{ paper.infoname }}</td></tr>
-                  <tr>
-                    <td>是否开放</td>
-                    <td v-if="paper.penabled == 'no'">否</td>
-                    <td v-if="paper.penabled == 'yes'">是</td>
-                  </tr>
-                  <tr><td>题目数量</td><td>{{ paper.prolist }}</td></tr>
-                  <tr><td>考生人数</td><td>{{ paper.stulist }}</td></tr>
-                  <tr><td>交卷人数</td><td>{{ paper.submitted }}</td></tr>
-                </tbody>
-              </table>
+
+                <h3 class="card-title">基本信息</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>数据</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>试卷编号</td>
+                        <td>{{ paper.pid }}</td>
+                    </tr>
+                    <tr>
+                        <td>试卷名称</td>
+                        <td>{{ paper.pname }}</td>
+                    </tr>
+                    <tr>
+                        <td>出题老师</td>
+                        <td>{{ paper.infoname }}</td>
+                    </tr>
+                    <tr>
+                        <td>是否开放</td>
+                        <td v-if="paper.penabled == 'no'">否</td>
+                        <td v-if="paper.penabled == 'yes'">是</td>
+                    </tr>
+                    <tr>
+                        <td>题目数量</td>
+                        <td>{{ paper.prolist }}</td>
+                    </tr>
+                    <tr>
+                        <td>考生人数</td>
+                        <td>{{ paper.stulist }}</td>
+                    </tr>
+                    <tr>
+                        <td>交卷人数</td>
+                        <td>{{ paper.submitted }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
-          </div>
         </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">成绩统计饼状图</h4>
-                    <button type="button" class="btn-gradient-info btn-block" @click="illustrate()"><i class="mdi mdi-account-card-details"></i> 查看饼状图</button>
+                    <button type="button" class="btn-gradient-info btn-block" @click="illustrate()"><i
+                            class="mdi mdi-account-card-details"></i> 查看饼状图
+                    </button>
                     <canvas id="gradeChart1" style="height:50px"></canvas>
                 </div>
             </div>
@@ -73,6 +97,9 @@
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">成绩列表</h2>
+            <button type="button" class="btn btn-gradient-danger btn-google" @click="paper_export"/>
+            <i class="mdi mdi-arrow-down-bold-circle-outline"></i> 导出成绩</button>
+            <a href="../../../exam_system_backend-master/files/试卷成绩单.xls"><span id="sp"></span></a>
             <table class="table">
                 <thead>
                 <th>学生学号</th>

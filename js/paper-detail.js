@@ -95,7 +95,7 @@ var vm = new Vue({
     batch_insert:function(){
       postdata = {
         stulist: this.batch_names,
-        paperid: this.paper.pid,
+        paperid: this.paperid,
         action: 'addstu'
       };
       this.$http.post(backend_server + 'paper-stulist/', postdata, {credentials: true})
@@ -242,6 +242,28 @@ var vm = new Vue({
       tabledata += "</tbody>";
       tabledata += "<table>";
       $("#stutable").html(tabledata);
+    },
+       upload_stu:function(){
+      var form_data = new FormData();
+      var file_info = $( '#upload_stulist')[0].files[0];
+      form_data.append('file', file_info);
+      form_data.append('paperid', this.paperid);
+      //form_data.append('paperid', this.paper.pid);
+      if(file_info == undefined){
+        alert('你没有选择任何文件');
+        return;
+      }
+      $.ajax({
+        url: backend_server + 'stu-upload/',
+        type:'POST',
+        data: form_data,
+        processData: false,  // tell jquery not to process the data
+        contentType: false, // tell jquery not to set contentType
+        success: function(callback) {
+          alert('上传成功！');
+          location.reload();
+        }
+      });
     }
 
 

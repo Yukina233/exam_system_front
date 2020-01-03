@@ -43,9 +43,9 @@
           <h2 class="card-title">批量添加用户</h2>
           <p class="card-description">请下载 Excel 模板填写后上传：<a href="../../files/在线考试系统添加用户模版.xls">下载模板</a></p>
           <form>
-              <p><input type="file" id="upload_userlist" class="form-control"></p>
+              <p><input type="file" id="upload_stulist" class="form-control"></p>
               <p>
-                  <button type="button" class="btn btn-gradient-primary btn-fw" @click="upload_user()"/>
+                  <button type="button" class="btn btn-gradient-primary btn-fw" @click="upload_stu()"/>
                   <i class="mdi mdi-cloud-upload"></i> 上传</button>
                   <button type="button" class="btn btn-light btn-fw" onclick="javascript:hide_div('overdiv','over')"/>
                   <i class="mdi mdi-window-close"></i> 取消</button>
@@ -66,7 +66,7 @@
         <div class="card-body">
           <h2 class="card-title">学生列表</h2>
            <p class="card-description"></p>
-<!--          <p class="card-description">点击可删除单个学生</p>-->
+          <p class="card-description">点击"添加学生"进行添加，也可以点击"批量添加"进行导入</p>
           <table class="table">
             <tbody id="stutable"></tbody>
           </table>

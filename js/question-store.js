@@ -8,7 +8,7 @@ var vm = new Vue({
   methods:{
     find:function() {
       if (this.newpaper == '') {
-        alert('试题名不能为空！');
+        alert('题库名不能为空！');
         return;
       }
 

@@ -51,6 +51,7 @@
                     <td>{{pro.point}}</td>
                     <td><input type="button" class="btn-gradient-info"
                                                             v-on:click="remove(pro.id)" value="删除"/></td>
+
                 </tr>
                 </tbody>
             </table>
@@ -84,10 +85,10 @@
                     <td>{{pro.right}}</td>
 
                     <td>
-                    <input class="form-control" type="text" id="problem" v-model="newpro.point">
+                    <input class="form-control" type="text" id="problem" v-model="pro.point">
                     </td>
                     <td v-if="pro.inpaper == 'false'"><input type="button" class="btn-gradient-success "
-                                                             v-on:click="insert(pro.id)" value="添加"/></td>
+                                                             v-on:click="insert(pro.id,pro.point)" value="添加"/></td>
                     <td v-if="pro.inpaper == 'true'"><input type="button" class="btn-gradient-info"
                                                             v-on:click="remove(pro.id)" value="撤销"/></td>
                 </tr>

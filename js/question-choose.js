@@ -59,9 +59,9 @@ var vm = new Vue({
         modify: function () {
             // NOT confirmed to implement this one
         },
-        insert: function (id_to_add) {
+        insert: function (id_to_add,point) {
             // Bug fix: Reload point field to integer
-            this.newpro.point = parseInt(this.newpro.point);
+            this.newpro.point = parseInt(point);
             //
             postdata = {
                 action: 'add_from_store',

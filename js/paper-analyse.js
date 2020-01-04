@@ -257,6 +257,9 @@ $(function () {
                         alert('导出成绩失败（2）');
                         //location.reload();
                     });
+            },
+            page_print: function () {
+                print();
             }
         },
 

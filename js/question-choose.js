@@ -18,9 +18,12 @@ var vm = new Vue({
       wrong3: ''
     },
     prolist : '',
-    paperid: 0
+    paperid: 0,
+    storeid:'',
+    subject:''
   },
   methods:{
+
     remove:function(id_to_del){
       //console.warn(id_to_del + " is to be removed.");
       if (id_to_del == "all")
@@ -105,19 +108,18 @@ var vm = new Vue({
       };
       console.log(this.newpro);
     },
-    get_paper_detail:function(){
-      this.$http.get(backend_server + 'paper-get-detail/?id=' + this.paperid, {credentials: true})
+    get_store_detail:function(){
+       this.$http.get(backend_server + 'store-get-detail/?storeid=' + this.storeid, {credentials: true})
+
       .then(function(res){
         console.log(res.bodyText);
         var dataret = JSON.parse(res.bodyText);
         if (dataret.code == 200)
         {
-          this.paper = dataret.info;
-          /*this.procount = dataret.paper.problem_count;
-          this.prolist = dataret.paper.question_list;*/
+
+          this.subject = dataret.subject;
           this.prolist = dataret.paper;
-          //this.stulist = dataret.stulist;
-          //console.log(this.prolist);
+          console.log(this.prolist)
         }
         else
         {
@@ -127,36 +129,15 @@ var vm = new Vue({
         console.log(res.status);
         this.prolist = '获取试题列表失败(2)';
       });
-    },
-    upload_paper:function(){
-      var form_data = new FormData();
-      var file_info = $( '#upload_prolist')[0].files[0];
-      form_data.append('file', file_info);
-      form_data.append('paperid', this.paper.pid);
-      if(file_info == undefined){
-        alert('你没有选择任何文件');
-        return;
-      }
-      $.ajax({
-        url: backend_server + 'paper-upload/',
-        type:'POST',
-        data: form_data,
-        processData: false,  // tell jquery not to process the data
-        contentType: false, // tell jquery not to set contentType
-        success: function(callback) {
-          alert('上传成功！');
-          location.reload();
-        }
-      });
-    },
-     store : function(){
-        window.location.href = "question-store.html?paperid=" + this.paperid;
-      }
+    }
   },
 
   created:function(){
     this.paperid = getQueryString('paperid');
-    this.get_paper_detail();
+    this.storeid = getQueryString('storeid');
+    console.log(this.paperid );
+    console.log(this.storeid);
+    this.get_store_detail();
   }
 });
 

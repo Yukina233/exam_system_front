@@ -29,7 +29,7 @@ var vm = new Vue({
         contentType: false, // tell jquery not to set contentType
         success: function(callback) {
           alert('上传成功！');
-          location.reload();
+          //location.reload();
         }
       });
 
